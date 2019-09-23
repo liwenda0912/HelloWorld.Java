@@ -3,7 +3,7 @@ public class SayHello {
               System.out.println("Below is the function of sayhello");
                sayhello(sum());
                HelloWold hellowold = new Hellowold() ;
-                hellowold.sayhello(hellowold.sum());
+               hellowold.sayhello(hellowold.sum());
 
        }
        public static void sayhello(int sum){
