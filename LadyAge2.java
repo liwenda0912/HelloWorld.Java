@@ -21,12 +21,12 @@ public class LadyAge2{
 				  System.out.println("welcome using");
 				  break;;
 		   case 2:	
-                  System.out.println("hello!girl！");
+                                  System.out.println("hello!girl！");
 				  System.out.println("welcome using!");
-                  break;
-           default:
-                  System.out.println("please try again!");
-                  break;	
-        }
-    }
+                                  break;
+                   default:
+                                  System.out.println("please try again!");
+                                  break;	
+            }
+      }  
 } 
