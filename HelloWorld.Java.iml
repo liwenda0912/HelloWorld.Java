@@ -4,6 +4,20 @@
     <facet type="javaeeApplication" name="javaEEApplication">
       <configuration>
         <descriptors>
+          <deploymentDescriptor name="application.xml" url="file://$MODULE_DIR$/book/META-INF/application.xml" />
+        </descriptors>
+      </configuration>
+    </facet>
+    <facet type="javaeeApplication" name="javaEEApplication2">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="application.xml" url="file://$MODULE_DIR$/Read/Read/META-INF/application.xml" />
+        </descriptors>
+      </configuration>
+    </facet>
+    <facet type="javaeeApplication" name="javaEEApplication3">
+      <configuration>
+        <descriptors>
           <deploymentDescriptor name="application.xml" url="file://$MODULE_DIR$/class/META-INF/application.xml" />
         </descriptors>
       </configuration>
