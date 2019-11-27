@@ -1,4 +1,5 @@
 
+import Utills.Utills;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,10 +13,10 @@ public class LoginForm extends JFrame {
     private JLabel passwordLabel;
     private JPasswordField passwordText;
     private JButton loginButton;
-    private JButton registerButton;
+    private JButton regsisterButton;
 
     public JButton getRegisterButton() {
-        return registerButton;
+        return regsisterButton;
     }
 
     public LoginForm(){
@@ -26,7 +27,7 @@ public class LoginForm extends JFrame {
         panelLogin = new JPanel();
         panelLogin.setLayout(null);
 
-        userLabel = new JLabel("User:");
+        userLabel = new JLabel("Username:");
         userLabel.setBounds(10,20,80,25);
         panelLogin.add(userLabel);
 
@@ -46,23 +47,39 @@ public class LoginForm extends JFrame {
         loginButton.setBounds(10, 80, 80, 25);
         panelLogin.add(loginButton);
 
-        registerButton = new JButton("register");
-        registerButton.setBounds(100, 80, 80, 25);
-        panelLogin.add(registerButton);
+        regsisterButton = new JButton("register");
+        regsisterButton.setBounds(100, 80, 80, 25);
+        panelLogin.add(regsisterButton);
 
         JButton helpButtion = new JButton("help");
         helpButtion.setBounds(200, 80, 80, 25);
         panelLogin.add(helpButtion);
 
         add(panelLogin);
-        loginButton.addActionListener(new ActionListener() {
+        class li implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
-                WeChatForm weChatForm =new WeChatForm();
-                weChatForm.setFrameWeChatVisible(true);
-                dispose();
+                Utills utills =new Utills();
+                String username = userText.getText();
+                String userpassword = String.valueOf(passwordText.getPassword());
+                int result = utills.logincheck(username,userpassword);
+                if(result == 1) {
+                    WeChatForm weChatForm = new WeChatForm();
+                    weChatForm.setFrameWeChatVisible(true);
+                    dispose();
+                }
+                else {
+                    LoginForm loginForm = new LoginForm();
+                    RegsisterForm regsisterForm = new RegsisterForm();
+                    regsisterForm.setFrameLoginVisible(true);
+                    loginForm.setFrameLoginVisible(false);
+                    dispose();
+                }
             }
-        });
+
+        }
+             loginButton.addActionListener(new li());
+
     }
 
 

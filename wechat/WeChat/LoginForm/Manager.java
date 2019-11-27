@@ -20,5 +20,12 @@ public class Manager {
              regsisterForm.setFrameLoginVisible(false);
          }
      });
+        regsisterForm.getregsisterButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loginForm.setFrameLoginVisible(true);
+                regsisterForm.setFrameLoginVisible(false);
+            }
+        });
     }
 }
