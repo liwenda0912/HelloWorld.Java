@@ -5,7 +5,8 @@ import Result.UserInfo;
 import Result.UserServiceImpl;
 
 
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 public class Main {
@@ -17,15 +18,26 @@ public class Main {
             System.out.println("1.login  2.register  3.forget password  4.exit");
             Scanner scanner = new Scanner(System.in);
             choose = scanner.nextInt();
+
             switch (choose) {
                 case 1:
-                    UserInfo userLogin = new UserInfo();
-                    System.out.println("Please enter user name:");
-                    userLogin.setUsername(scanner.next());
-                    System.out.println("Please enter user password:");
-                    userLogin.setPassword(scanner.next());
-                    Result resultLogin = userService.login(userLogin);
-                    System.out.println(resultLogin.getResultmessage());
+                    final  RegisterForm registerForm = new RegisterForm();
+                    final LoginForm loginForm = new LoginForm();
+                    loginForm.setFrameLoginVisible(true);
+                    loginForm.getRegisterButton().addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            registerForm.setFrameLoginVisible(true);
+                            loginForm.setFrameLoginVisible(false);
+                        }
+                    });
+                    registerForm.getBackButton().addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            loginForm.setFrameLoginVisible(true);
+                            registerForm.setFrameLoginVisible(false);
+                        }
+                    });
                     break;
                 case 2:
                     UserInfo userRegister = new UserInfo();
